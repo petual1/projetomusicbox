@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicBox</title>
+    <script>
+        document.documentElement.classList.add('no-transitions');
+        if (localStorage.getItem('navIsCollapsed') === 'true') {
+            document.documentElement.classList.add('nav-is-collapsed');
+        }
+        const sections = ['followed-channels', 'live-channels', 'recommended-genres'];
+        sections.forEach(id => {
+            if (localStorage.getItem(`showMore_${id}`) === 'less') {
+                document.documentElement.classList.add(`show-more-${id}`);
+            }
+        });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="layout-container" id="layout-container">
+        <header class="top-nav">
+            <div class="top-nav__left-controls">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" title="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="home.html" class="top-nav__mobile-home-link" title="Início">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+            <div class="top-nav__logo">
+                <img src="images/logos/musicboxpng2.png" alt="Logo">
+            </div>
+            <div class="top-nav__search-container">
+                <a href="home.html" class="search-container__home-link" title="Início">
+                    <button class="search-container__home-btn"><i class="fa-solid fa-house"></i></button>
+                </a>
+                <div class="search-container__bar">
+                    <input type="text" placeholder="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="top-nav__user-actions">
+                <i class="fa-regular fa-bell" title="Notificações"></i>
+                <i class="fa-regular fa-message" title="Mensagens"></i>
+                <button class="user-actions__ad-free-btn">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Go Ad-Free for Free</span>
+                </button>
+                <img class="user-actions__profile" id="profile-btn" src="images/icons/jotchua.webp" alt="User Profile">
+                <div class="profile-dropdown-menu" id="profile-dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html">Profile <i class="fa-solid fa-user-circle"></i></a></li>
+                        <li><a href="#">Settings <i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="#">Help <i class="fa-solid fa-circle-question"></i></a></li>
+                        <li><a href="index.html">Log Out <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <aside class="left-nav" id="left-nav">
+            <div class="left-nav__header">
+                <span class="left-nav__text">For You</span>
+                <button class="left-nav__close-btn" id="nav-close-btn" title="Fechar Menu"><i class="fa-solid fa-xmark"></i></button>
+                <div class="left-nav__header-actions">
+                    <button class="header-actions__btn" title="Sort by">
+                        <i class="fa-solid fa-arrow-up-down"></i>
+                    </button>
+                </div>
+                <button class="header-actions__btn" id="nav-toggle-btn" title="Recolher Menu">
+                    <i class="fa-solid fa-arrow-right-to-bracket fa-flip-horizontal"></i>
+                </button>
+            </div>
+            <nav class="left-nav__content">
+                <div class="nav-section" data-section-id="followed-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Followed Channels</h4>
+                        <i class="fa-solid fa-heart nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Followed Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/architectsicon.jpg" alt="AT">
+                                <div class="nav-item__info"><strong class="left-nav__text">Architects</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/sabrinaicon.jpg" alt="SC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Sabrina Carpenter</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thornhillicon.jpg" alt="D">
+                                <div class="nav-item__info"><strong class="left-nav__text">Thornhill</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/bringmeicon.jpg" alt="BMTH">
+                                <div class="nav-item__info"><strong class="left-nav__text">Bring Me The Horizon</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/inventicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Invent Animate</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thewinkidcon.jpg" alt="TW">
+                                <div class="nav-item__info"><strong class="left-nav__text">The Weeknd</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="live-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Live Channels</h4>
+                        <i class="fa-solid fa-satellite-dish nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Live Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/spiritboxicon.jpg" alt="SB">
+                                <div class="nav-item__info"><strong class="left-nav__text">Spiritbox</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/cigarrettesicon.jpg" alt="CN">
+                                <div class="nav-item__info"><strong class="left-nav__text">Cigarettes After Sex</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/neicon.jpg" alt="JA">
+                                <div class="nav-item__info"><strong class="left-nav__text">Ne Obliviscaris</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/dojacaticon.jpg" alt="DC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Doja Cat</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/travisicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Travis Scott</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="recommended-genres">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Recommended Genres</h4>
+                        <i class="fa-solid fa-icons nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Recommended Genres</span>
+                    </div>
+                    <ul class="genre-list">
+                        <li><a href="category.html?genre=rock" class="genre-list__item"><img class="genre-list__img" src="images/icons/kurtpng.png" alt="Rock"><span>Rock</span></a></li>
+                        <li><a href="category.html?genre=metal" class="genre-list__item"><img class="genre-list__img" src="images/icons/courtneypng.png" alt="Metal"><span>Metal</span></a></li>
+                        <li><a href="category.html?genre=pop" class="genre-list__item"><img class="genre-list__img" src="images/icons/sabrinapng.png" alt="Pop"><span>Pop</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=country" class="genre-list__item"><img class="genre-list__img" src="images/icons/countrypng.png" alt="Country"><span>Country</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=latin" class="genre-list__item"><img class="genre-list__img" src="images/icons/latinpng.png" alt="Latin"><span>Latin</span></a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section class="carousel" id="carousel">
+                <div class="carousel__viewport">
+                    <div class="carousel__track" id="carousel-track"></div>
+                </div>
+                <button class="carousel__button carousel__button--prev" id="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel__button carousel__button--next" id="carousel-next"><i class="fas fa-chevron-right"></i></button>
+            </section>
+            <section class="categories">
+                <h2 class="categories__title"><span>Categories</span> we think you’ll like</h2>
+                <div class="categories__grid">
+                    <a href="category.html?genre=pop">
+                        <div class="genre-card"><img src="images/icons/sabrinapng.png" alt="Pop">
+                            <div class="genre-card__title">Pop</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=country">
+                        <div class="genre-card"><img src="images/icons/countrypng.png" alt="Country">
+                            <div class="genre-card__title">Country</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=latin">
+                        <div class="genre-card"><img src="images/icons/latinpng.png" alt="Latin">
+                            <div class="genre-card__title">Latin</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=hip-hop">
+                        <div class="genre-card"><img src="images/icons/hiphoppng.png" alt="Hip-Hop">
+                            <div class="genre-card__title">Hip-Hop</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=r-b">
+                        <div class="genre-card"><img src="images/icons/rebpng.png" alt="R&B">
+                            <div class="genre-card__title">R&B</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=rock">
+                        <div class="genre-card"><img src="images/icons/kurtpng.png" alt="Rock">
+                            <div class="genre-card__title">Rock</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=trap">
+                        <div class="genre-card"><img src="images/icons/trappng.png" alt="Trap">
+                            <div class="genre-card__title">Trap</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=k-pop">
+                        <div class="genre-card"><img src="images/icons/rosepng.png" alt="K-Pop">
+                            <div class="genre-card__title">K-Pop</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=metal">
+                        <div class="genre-card"><img src="images/icons/courtneypng.png" alt="Metal">
+                            <div class="genre-card__title">Metal</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=mpb">
+                        <div class="genre-card"><img src="images/icons/alceupng.png" alt="MPB">
+                            <div class="genre-card__title">MPB</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="categories">
+                <h2 class="categories__title">Popular <span>Sessions</span></h2>
+                <div class="categories__grid">
+                    <a href="category.html?genre=indie">
+                        <div class="genre-card"><img src="images/icons/indiepng.png" alt="Indie">
+                            <div class="genre-card__title">Indie</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=electronic">
+                        <div class="genre-card"><img src="images/icons/eletronicpng.png" alt="Electronic">
+                            <div class="genre-card__title">Electronic</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=jazz">
+                        <div class="genre-card"><img src="images/icons/jazzpng.png" alt="Jazz">
+                            <div class="genre-card__title">Jazz</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=classical">
+                        <div class="genre-card"><img src="images/icons/classicalpng.png" alt="Classical">
+                            <div class="genre-card__title">Classical</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=folk-acoustic">
+                        <div class="genre-card"><img src="images/icons/folkpng.png" alt="Folk & Acoustic">
+                            <div class="genre-card__title">Folk & Acoustic</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="categories">
+                <h2 class="categories__title">For <span>Chilling</span></h2>
+                <div class="categories__grid">
+                    <a href="category.html?genre=blues">
+                        <div class="genre-card"><img src="images/icons/bluespng.png" alt="Blues">
+                            <div class="genre-card__title">Blues</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=reggae">
+                        <div class="genre-card"><img src="images/icons/reggaepng.png" alt="Reggae">
+                            <div class="genre-card__title">Reggae</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=chill">
+                        <div class="genre-card"><img src="images/icons/chillpng.png" alt="Chill">
+                            <div class="genre-card__title">Chill</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=instrumental">
+                        <div class="genre-card"><img src="images/icons/instrumentalpng.png" alt="Instrumental">
+                            <div class="genre-card__title">Instrumental</div>
+                        </div>
+                    </a>
+                    <a href="category.html?genre=sleep">
+                        <div class="genre-card"><img src="images/icons/sleeppng.png" alt="Sleep">
+                            <div class="genre-card__title">Sleep</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

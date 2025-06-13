@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Video...</title>
+    <script>
+        document.documentElement.classList.add('no-transitions');
+        const navIsCollapsed = localStorage.getItem('navIsCollapsed') === 'true';
+        if (navIsCollapsed) {
+            document.documentElement.classList.add('nav-is-collapsed');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="video-page.css">
+</head>
+
+<body>
+    <div class="layout-container" id="layout-container">
+        <header class="top-nav">
+            <div class="top-nav__left-controls">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" title="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="home.html" class="top-nav__mobile-home-link" title="Início">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+            <div class="top-nav__logo">
+                <img src="images/logos/musicboxpng2.png" alt="Logo">
+            </div>
+            <div class="top-nav__search-container">
+                <a href="home.html" class="search-container__home-link" title="Home">
+                    <button class="search-container__home-btn"><i class="fa-solid fa-house"></i></button>
+                </a>
+                <div class="search-container__bar">
+                    <input type="text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="top-nav__user-actions">
+                <i class="fa-regular fa-bell" title="Notifications"></i>
+                <i class="fa-regular fa-message" title="Messages"></i>
+                <button class="user-actions__ad-free-btn">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Go Ad-Free for Free</span>
+                </button>
+                <img class="user-actions__profile" id="profile-btn" src="images/icons/jotchua.webp" alt="User Profile">
+                <div class="profile-dropdown-menu" id="profile-dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html">Profile <i class="fa-solid fa-user-circle"></i></a></li>
+                        <li><a href="#">Settings <i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="#">Help <i class="fa-solid fa-circle-question"></i></a></li>
+                        <li><a href="index.html">Log Out <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <aside class="left-nav" id="left-nav">
+            <div class="left-nav__header">
+                <span class="left-nav__text">For You</span>
+                <button class="left-nav__close-btn" id="nav-close-btn" title="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+                <div class="left-nav__header-actions">
+                    <button class="header-actions__btn" title="Sort by">
+                        <i class="fa-solid fa-arrow-up-down"></i>
+                    </button>
+                </div>
+                <button class="header-actions__btn" id="nav-toggle-btn" title="Collapse Menu">
+                    <i class="fa-solid fa-arrow-right-to-bracket fa-flip-horizontal"></i>
+                </button>
+            </div>
+            <nav class="left-nav__content">
+                <div class="nav-section" data-section-id="followed-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Followed Channels</h4>
+                        <i class="fa-solid fa-heart nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Followed Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/architectsicon.jpg" alt="AT">
+                                <div class="nav-item__info"><strong class="left-nav__text">Architects</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/sabrinaicon.jpg" alt="SC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Sabrina Carpenter</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thornhillicon.jpg" alt="D">
+                                <div class="nav-item__info"><strong class="left-nav__text">Thornhill</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/bringmeicon.jpg" alt="BMTH">
+                                <div class="nav-item__info"><strong class="left-nav__text">Bring Me The Horizon</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/inventicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Invent Animate</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thewinkidcon.jpg" alt="TW">
+                                <div class="nav-item__info"><strong class="left-nav__text">The Weeknd</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="live-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Live Channels</h4>
+                        <i class="fa-solid fa-satellite-dish nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Live Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/spiritboxicon.jpg" alt="SB">
+                                <div class="nav-item__info"><strong class="left-nav__text">Spiritbox</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/cigarrettesicon.jpg" alt="CN">
+                                <div class="nav-item__info"><strong class="left-nav__text">Cigarettes After Sex</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/neicon.jpg" alt="JA">
+                                <div class="nav-item__info"><strong class="left-nav__text">Ne Obliviscaris</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/dojacaticon.jpg" alt="DC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Doja Cat</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/travisicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Travis Scott</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="recommended-genres">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Recommended Genres</h4>
+                        <i class="fa-solid fa-icons nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Recommended Genres</span>
+                    </div>
+                    <ul class="genre-list">
+                        <li><a href="category.html?genre=rock" class="genre-list__item"><img class="genre-list__img" src="images/icons/kurtpng.png" alt="Rock"><span>Rock</span></a></li>
+                        <li><a href="category.html?genre=metal" class="genre-list__item"><img class="genre-list__img" src="images/icons/courtneypng.png" alt="Metal"><span>Metal</span></a></li>
+                        <li><a href="category.html?genre=pop" class="genre-list__item"><img class="genre-list__img" src="images/icons/sabrinapng.png" alt="Pop"><span>Pop</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=country" class="genre-list__item"><img class="genre-list__img" src="images/icons/countrypng.png" alt="Country"><span>Country</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=latin" class="genre-list__item"><img class="genre-list__img" src="images/icons/latinpng.png" alt="Latin"><span>Latin</span></a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content video-page-main">
+            <div class="full-width-player-section">
+                <div class="video-player-area">
+                    <div class="video-background-blur">
+                        <img id="video-background-image" src="" alt="">
+                    </div>
+                    <div class="video-player-container">
+                        <img id="video-player-image" src="" alt="Video loading...">
+                        <div class="player-controls-overlay">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="video-controls">
+                                <div class="controls-left">
+                                    <button class="control-btn"><i class="fa-solid fa-play"></i></button>
+                                    <div class="volume-control">
+                                        <button class="control-btn"><i class="fa-solid fa-volume-high"></i></button>
+                                        <input type="range" min="0" max="100" value="70" class="volume-slider">
+                                    </div>
+                                </div>
+                                <div class="controls-right">
+                                    <button class="control-btn" id="chat-toggle-btn"><i class="fa-solid fa-message"></i></button>
+                                    <button class="control-btn"><i class="fa-solid fa-film"></i></button>
+                                    <button class="control-btn"><i class="fa-solid fa-gear"></i></button>
+                                    <button class="control-btn" id="fullscreen-btn"><i class="fa-solid fa-expand"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stream-chat-panel">
+                        <div class="chat-panel__header">
+                            <button class="chat-panel__close-btn" id="chat-close-btn"><i class="fa-solid fa-arrow-right-to-bracket fa-flip-horizontal"></i></button>
+                            <span>Stream Chat</span>
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="chat-panel__body">
+                            <ul class="chat-messages-list">
+                                <li><span class="chat-username">david:</span> <span class="chat-message">uhuu!</span></li>
+                                <li><span class="chat-username" style="color: #42a5f5;">robert_bolinha313:</span> <span class="chat-message">uhuu!</span></li>
+                                <li><span class="chat-username" style="color: #66bb6a;">jotchumaster:</span> <span class="chat-message">uhuu!</span></li>
+                                <li><span class="chat-username" style="color: #ef5350;">gregory_shadows:</span> <span class="chat-message">uhuu!</span></li>
+                                <li><span class="chat-username" style="color: #ffa726;">gorilabob:</span> <span class="chat-message">uhuu!</span></li>
+                            </ul>
+                        </div>
+                        <div class="chat-panel__footer">
+                            <input type="text" placeholder="Send a message...">
+                            <button><i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-info-column">
+                <div class="stream-info-container">
+                    <div class="channel-info">
+                        <div class="channel-icon-wrapper">
+                            <img id="channel-icon" src="" alt="Channel icon">
+                            <div class="live-indicator">LIVE</div>
+                        </div>
+                        <div class="channel-text">
+                            <h1 id="channel-name"></h1>
+                            <p id="channel-location"></p>
+                        </div>
+                    </div>
+                    <div class="stream-actions">
+                        <button class="action-btn follow-btn"><i class="fas fa-heart"></i> <span>Follow</span></button>
+                        <div class="subscribe-dropdown-wrapper">
+                            <button class="action-btn subscribe-btn" id="subscribe-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-chevron-up" id="subscribe-arrow"></i>
+                            </button>
+                            <div class="subscribe-dropdown-menu" id="subscribe-menu">
+                                <div class="subscription-tiers">
+                                    <div class="tier">
+                                        <h3>Tier 1</h3>
+                                        <div class="price">$4.99<span class="period">/month</span></div>
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> Custom Emotes</li>
+                                            <li><i class="fas fa-check"></i> Subscriber Badge</li>
+                                        </ul>
+                                        <button class="action-btn">Subscribe</button>
+                                    </div>
+                                    <div class="tier popular">
+                                        <div class="popular-badge">MOST POPULAR</div>
+                                        <h3>Tier 2</h3>
+                                        <div class="price">$9.99<span class="period">/month</span></div>
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> Everything in Tier 1</li>
+                                            <li><i class="fas fa-check"></i> Ad-Free Viewing</li>
+                                        </ul>
+                                        <button class="action-btn">Subscribe</button>
+                                    </div>
+                                    <div class="tier">
+                                        <h3>Tier 3</h3>
+                                        <div class="price">$24.99<span class="period">/month</span></div>
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> Everything in Tier 2</li>
+                                            <li><i class="fas fa-check"></i> Producer Credit</li>
+                                        </ul>
+                                        <button class="action-btn">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stream-stats">
+                            <span><i class="fas fa-eye"></i> <span id="stream-views"></span></span>
+                            <span id="stream-duration"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="song-info-container">
+                    <img id="song-album-art" src="" alt="Album art">
+                    <div class="song-text">
+                        <p>Currently Playing:</p>
+                        <h2 id="song-title"></h2>
+                        <h3 id="song-genre"></h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
+    <script src="video-page.js" defer></script>
+</body>
+
+</html>

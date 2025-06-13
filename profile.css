@@ -1,0 +1,254 @@
+/*
+© 2025 [Daniel Alexandre Pereira de Abreu]. Todos os direitos reservados.
+Este software não pode ser copiado, modificado, distribuído ou vendido sem a permissão expressa do autor.
+*/
+
+/* ==========================================================================
+   1. VARIÁVEIS E RESET GLOBAL (reaproveitando do style.css para consistência)
+   ========================================================================== */
+:root {
+    --bg-main: #18181B;
+    --bg-top-nav: #151515;
+    --bg-left-nav: #252525;
+    --bg-info-panel: #151515;
+    --bg-search: #434343;
+    --bg-hover-light: rgba(255, 255, 255, 0.1);
+    --primary-purple: #723BA9;
+    --text-primary: #E0E0E0;
+    --text-secondary: #D9D9D9;
+    --font-main: 'Poppins', sans-serif;
+    --gradient-main: linear-gradient(180deg, rgba(114, 59, 169, 0.58) 0%, rgba(21, 3, 39, 0.58) 41.23%);
+    --nav-width-expanded: 280px;
+    --nav-width-collapsed: 80px;
+    --nav-transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   2. Estilos para a página de perfil (profile.html)
+   ========================================================================== */
+
+
+.profile-page-main::-webkit-scrollbar {
+    width: 8px;
+}
+.profile-page-main::-webkit-scrollbar-track {
+    background: transparent;
+}
+.profile-page-main::-webkit-scrollbar-thumb {
+    background-color: var(--primary-purple);
+    border-radius: 4px;
+}
+.profile-page-main::-webkit-scrollbar-thumb:hover {
+    background-color: #8a4ccf;
+}
+
+
+.profile-page-main {
+    grid-area: main;
+    background-color: #150327;
+    background-image: var(--gradient-main);
+    backdrop-filter: blur(2px);
+    padding: 26px; 
+    overflow-y: auto;
+    position: relative;
+    z-index: 10;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px; 
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.profile-username {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.stat-value {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+.stat-label {
+    font-size: 0.8em;
+    color: var(--text-secondary);
+}
+
+.profile-sections {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.profile-section-card {
+    background-color: var(--bg-left-nav);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-section-card h3 {
+    font-size: 1.4em;
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-section-card h3 i {
+    font-size: 1.2em;
+}
+
+.profile-section-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-section-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.95em;
+    color: var(--text-primary);
+}
+
+.profile-section-card ul li:last-child {
+    border-bottom: none;
+}
+
+.profile-section-card ul li span {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-section-card .link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.profile-section-card .link-item:hover {
+    color: var(--primary-purple);
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 768px) {
+    .profile-page-main {
+        padding: 20px 15px;
+    }
+
+    .profile-header {
+        margin-bottom: 30px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-name {
+        font-size: 1.8em;
+    }
+
+    .profile-username {
+        font-size: 1em;
+    }
+
+    .profile-stats {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .profile-sections {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .profile-section-card {
+        padding: 20px;
+    }
+
+    .profile-section-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .profile-section-card ul li {
+        font-size: 0.9em;
+        padding: 6px 0;
+    }
+}

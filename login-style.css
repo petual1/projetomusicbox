@@ -1,0 +1,179 @@
+/*
+© 2025 [Daniel Alexandre Pereira de Abreu]. Todos os direitos reservados.
+Este software não pode ser copiado, modificado, distribuído ou vendido sem a permissão expressa do autor.
+*/
+
+/* ==========================================================================
+   1. VARIÁVEIS E RESET GLOBAL
+   ========================================================================== */
+:root {
+    --bg-home: #18181B;
+    --bg-card: #252525;
+    --primary-purple: #9147FF;
+    --text-primary: #EFEFF1;
+    --text-secondary: #ADADB8;
+    --font-main: 'Poppins', sans-serif;
+    --gradient-main: linear-gradient(180deg, rgba(114, 59, 169, 0.2) 0%, rgba(21, 3, 39, 0.4) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-home);
+    background-image: var(--gradient-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   2. CONTAINER PRINCIPAL E CARD
+   ========================================================================== */
+.login-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem 2rem;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: rgba(37, 37, 37, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-card__logo {
+    text-align: center;
+    margin-bottom: 0.8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.form-card__logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   3. ELEMENTOS DO FORMULÁRIO E ANIMAÇÃO
+   ========================================================================== */
+.form-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.form.is-active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.form.is-exiting {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.form__title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__input-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form__input-group input {
+    background-color: #1F1F23;
+    border: 1px solid #434343;
+    border-radius: 8px;
+    height: 50px;
+    padding: 0 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form__input-group input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(145, 71, 255, 0.3);
+}
+
+.form__actions {
+    text-align: right;
+}
+
+.form__link {
+    font-size: 0.8rem;
+    color: var(--primary-purple);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+
+.form__button {
+    background-color: var(--primary-purple);
+    border: none;
+    border-radius: 8px;
+    height: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-main);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form__button:hover {
+    background-color: #7a3dd9;
+}
+
+.form__switch-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}

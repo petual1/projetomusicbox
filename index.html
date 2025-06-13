@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MusicBox</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="login-style.css">
+
+    <script src="login-script.js" defer></script>
+</head>
+<body>
+
+    <div class="login-page-container">
+        <div class="form-card">
+            <div class="form-card__logo">
+                <img src="images/logos/musicboxpng3.png" alt="MusicBox Logo" style="max-width: 200px; height: auto;">
+            </div>
+
+            <div class="form-wrapper">
+                <form class="form is-active" id="login-form">
+                    <h2 class="form__title">Welcome Back!</h2>
+
+                    <div class="form__input-group">
+                        <label for="login-username">Username or Email</label>
+                        <input type="text" id="login-username" name="username" required>
+                    </div>
+
+                    <div class="form__input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+
+                    <div class="form__actions">
+                        <a href="#" class="form__link">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="form__button">Log In</button>
+
+                    <p class="form__switch-text">
+                        Don't have an account? <a href="#" class="form__link" id="show-register-link">Sign Up</a>
+                    </p>
+                </form>
+
+                <form class="form" id="register-form">
+                    <h2 class="form__title">Create Account</h2>
+
+                    <div class="form__input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+
+                    <div class="form__input-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" name="username" required>
+                    </div>
+
+                    <div class="form__input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="form__button">Sign Up</button>
+
+                    <p class="form__switch-text">
+                        Already have an account? <a href="#" class="form__link" id="show-login-link">Log In</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

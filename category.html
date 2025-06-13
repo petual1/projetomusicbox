@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicBox - Categoria</title>
+    <script>
+        document.documentElement.classList.add('no-transitions');
+        const navIsCollapsed = localStorage.getItem('navIsCollapsed') === 'true';
+        if (navIsCollapsed) {
+            document.documentElement.classList.add('nav-is-collapsed');
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="category.css">
+    <script src="script.js" defer></script>
+    <script src="category.js" defer></script>
+</head>
+
+<body>
+    <div class="layout-container" id="layout-container">
+        <header class="top-nav">
+            <div class="top-nav__left-controls">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" title="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="home.html" class="top-nav__mobile-home-link" title="Início">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+            <div class="top-nav__logo">
+                <img src="images/logos/musicboxpng2.png" alt="Logo">
+            </div>
+            <div class="top-nav__search-container">
+                <a href="home.html" class="search-container__home-link" title="Início">
+                    <button class="search-container__home-btn"><i class="fa-solid fa-house"></i></button>
+                </a>
+                <div class="search-container__bar">
+                    <input type="text" placeholder="">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="top-nav__user-actions">
+                <i class="fa-regular fa-bell" title="Notificações"></i>
+                <i class="fa-regular fa-message" title="Mensagens"></i>
+                <button class="user-actions__ad-free-btn">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Go Ad-Free for Free</span>
+                </button>
+                <img class="user-actions__profile" id="profile-btn" src="images/icons/jotchua.webp" alt="User Profile">
+                <div class="profile-dropdown-menu" id="profile-dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html">Profile <i class="fa-solid fa-user-circle"></i></a></li>
+                        <li><a href="#">Settings <i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="#">Help <i class="fa-solid fa-circle-question"></i></a></li>
+                        <li><a href="index.html">Log Out <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <aside class="left-nav" id="left-nav">
+            <div class="left-nav__header">
+                <span class="left-nav__text">For You</span>
+                <button class="left-nav__close-btn" id="nav-close-btn" title="Fechar Menu"><i class="fa-solid fa-xmark"></i></button>
+                <div class="left-nav__header-actions">
+                    <button class="header-actions__btn" title="Sort by">
+                        <i class="fa-solid fa-arrow-up-down"></i>
+                    </button>
+                </div>
+                <button class="header-actions__btn" id="nav-toggle-btn" title="Recolher Menu">
+                    <i class="fa-solid fa-arrow-right-to-bracket fa-flip-horizontal"></i>
+                </button>
+            </div>
+            <nav class="left-nav__content">
+                <div class="nav-section" data-section-id="followed-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Followed Channels</h4>
+                        <i class="fa-solid fa-heart nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Followed Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/architectsicon.jpg" alt="AT">
+                                <div class="nav-item__info"><strong class="left-nav__text">Architects</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/sabrinaicon.jpg" alt="SC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Sabrina Carpenter</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thornhillicon.jpg" alt="D">
+                                <div class="nav-item__info"><strong class="left-nav__text">Thornhill</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/bringmeicon.jpg" alt="BMTH">
+                                <div class="nav-item__info"><strong class="left-nav__text">Bring Me The Horizon</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/inventicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Invent Animate</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo" src="images/icons/thewinkidcon.jpg" alt="TW">
+                                <div class="nav-item__info"><strong class="left-nav__text">The Weeknd</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="live-channels">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Live Channels</h4>
+                        <i class="fa-solid fa-satellite-dish nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Live Channels</span>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/spiritboxicon.jpg" alt="SB">
+                                <div class="nav-item__info"><strong class="left-nav__text">Spiritbox</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/cigarrettesicon.jpg" alt="CN">
+                                <div class="nav-item__info"><strong class="left-nav__text">Cigarettes After Sex</strong></div>
+                            </a></li>
+                        <li><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/neicon.jpg" alt="JA">
+                                <div class="nav-item__info"><strong class="left-nav__text">Ne Obliviscaris</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/dojacaticon.jpg" alt="DC">
+                                <div class="nav-item__info"><strong class="left-nav__text">Doja Cat</strong></div>
+                            </a></li>
+                        <li class="is-hidden"><a href="#" class="nav-item"><img class="nav-item__logo is-live" src="images/icons/travisicon.jpg" alt="TS">
+                                <div class="nav-item__info"><strong class="left-nav__text">Travis Scott</strong></div>
+                            </a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+                <div class="nav-section" data-section-id="recommended-genres">
+                    <div class="nav-section__header">
+                        <h4 class="left-nav__text">Recommended Genres</h4>
+                        <i class="fa-solid fa-icons nav-section__icon"></i>
+                        <span class="nav-section__tooltip">Recommended Genres</span>
+                    </div>
+                    <ul class="genre-list">
+                        <li><a href="category.html?genre=rock" class="genre-list__item"><img class="genre-list__img" src="images/icons/kurtpng.png" alt="Rock"><span>Rock</span></a></li>
+                        <li><a href="category.html?genre=metal" class="genre-list__item"><img class="genre-list__img" src="images/icons/courtneypng.png" alt="Metal"><span>Metal</span></a></li>
+                        <li><a href="category.html?genre=pop" class="genre-list__item"><img class="genre-list__img" src="images/icons/sabrinapng.png" alt="Pop"><span>Pop</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=country" class="genre-list__item"><img class="genre-list__img" src="images/icons/countrypng.png" alt="Country"><span>Country</span></a></li>
+                        <li class="is-hidden"><a href="category.html?genre=latin" class="genre-list__item"><img class="genre-list__img" src="images/icons/latinpng.png" alt="Latin"><span>Latin</span></a></li>
+                    </ul>
+                    <a href="#" class="nav-section__show-more left-nav__text">Show More</a>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section class="category-page">
+                <header class="category-header">
+                    <div class="category-banner">
+                        <img src="" alt="Banner da Categoria" class="category-banner__image">
+                        <div class="category-banner__title-card">
+                            <h1 class="category-banner__title">Carregando...</h1>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <p class="category-info__stats"></p>
+                        <button class="category-info__follow-btn">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Follow</span>
+                        </button>
+                    </div>
+                </header>
+                <nav class="category-nav">
+                    <div class="category-tabs">
+                        <a href="#" class="tab-item is-active" data-tab="live">Live Channels</a>
+                        <a href="#" class="tab-item" data-tab="videos">Videos</a>
+                        <a href="#" class="tab-item" data-tab="clips">Clips</a>
+                    </div>
+                </nav>
+                <div class="sub-nav-filters">
+                    <div class="sub-filters-left">
+                        <div class="filter-dropdown-wrapper">
+                            <button class="sub-filter-btn" id="lang-dropdown-btn">
+                                <i class="fa-solid fa-globe"></i>
+                                <span id="lang-label">Language</span>
+                                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                            </button>
+                            <ul class="filter-dropdown-menu" id="lang-dropdown-menu">
+                                <li><a href="#" data-lang="any">Any Language</a></li>
+                                <li><a href="#" data-lang="en">English</a></li>
+                                <li><a href="#" data-lang="pt">Português</a></li>
+                                <li><a href="#" data-lang="es">Español</a></li>
+                            </ul>
+                        </div>
+                        <button class="sub-filter-btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                    <div class="sub-filters-right">
+                        <div class="filter-dropdown-wrapper">
+                            <button class="sub-filter-btn" id="sort-dropdown-btn">
+                                <span id="sort-label">Recommended For You</span>
+                                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                            </button>
+                            <ul class="filter-dropdown-menu" id="sort-dropdown-menu">
+                                <li><a href="#" data-filter="recommended">Recommended For You</a></li>
+                                <li><a href="#" data-filter="viewers_high">Viewers (High to Low)</a></li>
+                                <li><a href="#" data-filter="recent">Recently Started</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-grid"></div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
